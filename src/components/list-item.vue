@@ -26,12 +26,28 @@ export default {
 
 .list-item
     width: 100%
+    cursor: pointer
+
+    padding: 0.875em 0.875em 0.875em 0
+
+    border-bottom: 1px solid $white
+
+    &::before
+        content: url(../assets/img/chevron-right.svg)
+        padding-right: 0.875em
+
+    &__card
+        display: flex
+        align-items: center
+        padding: 0.75em 1.5em
 
     &__img
         max-height: 5.500em
+        margin-right: 1.875em
 
     &__text
         font-family: 'Roboto', sans-serif
+        font-size: 0.875em
         font-weight: 300
 
 </style>

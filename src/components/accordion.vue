@@ -57,14 +57,16 @@ import listItem from './list-item'
         font-weight: 300
         font-size: 4em
 
-        margin: 0 0 2.813em
+        margin: 0 0 .5em
         text-align: left
 
     &__content
-        margin: 0 3.063em
+        max-height: 100vh
+        overflow: auto
 
     &__list
         display: flex
+        flex-wrap: wrap
 
         margin: 0
         padding: 0
@@ -74,8 +76,6 @@ import listItem from './list-item'
 
         color: $metallic-blue
 
-        &::before
-            content: url(../assets/img/chevron-right.svg)
-            margin-right: 0.875em
+
 
 </style>
