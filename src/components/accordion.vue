@@ -3,20 +3,24 @@
         h1.accordion__title {{ title }}
         main.accordion__content
             ul.accordion__list
-                li.accordion__list-item(v-for="(item, index) in items" :key="index" @click="show = !show") {{ item.name }}
-                    .accordion__card(v-show="show")
-                        img.accordion__list-img(:src="item.image_url")
-                        p.accordion__list-text {{ item.description }}
+                list-item(v-for="(a, index) in items" :key="`list-item-${index}`", :item="a")
+                //- li.accordion__list-item {{ item.name }}
+                //-     .accordion__card(v-show="show")
+                //-         img.accordion__list-img(:src="item.image_url")
+                //-         p.accordion__list-text {{ item.description }}
 
 </template>
 <script>
 import axios from 'axios'
+import listItem from './list-item'
 
     export default {
         name: 'accordion',
+        components : {
+            listItem
+        },
         data () {
             return {
-                show: true,
                 title: 'Title',
                 items : []
             }
@@ -73,13 +77,5 @@ import axios from 'axios'
         &::before
             content: url(../assets/img/chevron-right.svg)
             margin-right: 0.875em
-
-    &__list-img
-        max-width: 4.688em
-
-    &__list-text
-        font-family: 'Roboto', sans-serif
-        font-weight: 300
-
 
 </style>
