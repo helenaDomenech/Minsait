@@ -30,7 +30,6 @@ import listItem from './list-item'
             .get('https://api.punkapi.com/v2/beers?brewed_before=11-2012&abv_gt=6')
             .then(response => {
                 this.items = response.data
-                console.log(response.data);
             })
         }
     }

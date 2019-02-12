@@ -1,5 +1,5 @@
 <template lang="pug">
-    li.list-item(@click="show = !show") {{ item.name }}
+    li.list-item(@click="show = !show", :class="{ 'list-item--active':show }") {{ item.name }}
         .list-item__card(v-show="show")
             img.list-item__img(:src="item.image_url")
             p.list-item__text {{ item.description }}
@@ -35,6 +35,12 @@ export default {
     &::before
         content: url(../assets/img/chevron-right.svg)
         padding-right: 0.875em
+
+    &--active
+        &::before
+            content: url(../assets/img/chevron-down.svg)
+            transition: content 1s ease
+
 
     &__card
         display: flex

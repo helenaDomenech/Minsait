@@ -1,6 +1,6 @@
 <template lang="pug">
   div(id="app")
-    Accordion(msg="Welcome to Your Vue.js App")
+    Accordion
 </template>
 
 <script>
@@ -22,8 +22,11 @@ export default {
     font-family: 'Roboto', sans-serif
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
-    text-align: center
     background-color: $white-two
+
+    display: flex
+    justify-content: center
+
     padding: 4em 4.5em
 
 </style>
