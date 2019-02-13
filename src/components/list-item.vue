@@ -1,7 +1,7 @@
 <template lang="pug">
     li.list-item(@click="show = !show", :class="{ 'list-item--active':show }") {{ item.name }}
         .list-item__card(v-show="show")
-            img.list-item__img(:src="item.image_url")
+            img.list-item__img(:src="item.image_url", :alt="item.name")
             p.list-item__text {{ item.description }}
 </template>
 
