@@ -1,8 +1,8 @@
 <template lang="pug">
-    .accordion
+    main.accordion
         accordion-header(:title="title")
-        main.accordion__content
-            ul.accordion__list
+        section.accordion__content
+            ol.accordion__list(role="list")
                 list-item(v-for="(a, index) in items" :key="`list-item-${index}`", :item="a")
 
 </template>
