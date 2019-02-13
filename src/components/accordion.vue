@@ -1,28 +1,26 @@
 <template lang="pug">
     .accordion
-        h1.accordion__title {{ title }}
+        accordion-header(:title="title")
         main.accordion__content
             ul.accordion__list
                 list-item(v-for="(a, index) in items" :key="`list-item-${index}`", :item="a")
-                //- li.accordion__list-item {{ item.name }}
-                //-     .accordion__card(v-show="show")
-                //-         img.accordion__list-img(:src="item.image_url")
-                //-         p.accordion__list-text {{ item.description }}
 
 </template>
 <script>
 import axios from 'axios'
 import listItem from './list-item'
+import AccordionHeader from './accordion-header'
 
     export default {
         name: 'accordion',
         components : {
-            listItem
+            listItem,
+            AccordionHeader
         },
         data () {
             return {
-                title: 'Title',
-                items : []
+                items : [],
+                title : 'Title'
             }
         },
         created () {
@@ -49,15 +47,6 @@ import listItem from './list-item'
     padding: 2.813em
 
     background-color: $white-three
-
-    &__title
-        color: $dark-blue-grey
-        font-family: 'Roboto', sans-serif
-        font-weight: 300
-        font-size: 4em
-
-        margin: 0 0 .5em
-        text-align: left
 
     &__content
         max-height: 100vh

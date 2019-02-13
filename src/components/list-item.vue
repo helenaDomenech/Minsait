@@ -9,7 +9,7 @@
 export default {
     name: 'list-item',
     props : {
-        item : Object
+        item : Object,
     },
     data () {
         return {
