@@ -1,28 +1,46 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+  div(id="app")
+    accordion(:items="items")
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
+
+import Accordion from './components/accordion.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+    Accordion
+  },
+  data () {
+      return {
+          items : []
+      }
+  },
+  created () {
+    axios
+        .get('https://api.punkapi.com/v2/beers?brewed_before=11-2012&abv_gt=6')
+        .then(response => {
+            this.items = response.data
+        })
+    }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+
+  @import './scss/main.scss'
+
+  #app
+    font-family: 'Roboto', sans-serif
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    background-color: $white-two
+
+    display: flex
+    justify-content: center
+
+    padding: 4em 4.5em
+
 </style>
